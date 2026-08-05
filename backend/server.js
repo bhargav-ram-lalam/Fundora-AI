@@ -31,20 +31,20 @@ connectDB();
 const app = express();
 
 // Security Headers
-app.use(helmet({ crossOriginResourcePolicy: false }));
+//app.use(helmet({ crossOriginResourcePolicy: false }));
 
 // CORS Configuration
-const cors = require("cors");
-
 app.use(cors({
-  origin: [
-    "https://fundora-ai-three.vercel.app",
-    "http://localhost:5173"
-  ],
+  origin: "https://fundora-ai-three.vercel.app",
   credentials: true,
 }));
 
 app.options("*", cors());
+
+app.use((req, res, next) => {
+  console.log(req.method, req.originalUrl, req.headers.origin);
+  next();
+});
 
 // Rate limiting
 const limiter = rateLimit({

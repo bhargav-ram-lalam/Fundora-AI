@@ -308,7 +308,7 @@ export default function StartupDetail() {
                       </div>
                       {doc.fileUrl && (
                         <a
-                          href={`http://localhost:5000${doc.fileUrl}`}
+                          href={doc.fileUrl.startsWith('http') ? doc.fileUrl : `${(import.meta.env.VITE_API_URL || 'https://fundora-ai-z6lg.onrender.com/api').replace(/\/api\/?$/, '')}${doc.fileUrl}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex-shrink-0 p-2 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors"

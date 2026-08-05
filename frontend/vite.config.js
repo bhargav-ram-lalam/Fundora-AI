@@ -7,7 +7,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'https://fundora-ai-z61g.onrender.com',
+        target: 'https://fundora-ai-z6lg.onrender.com',
         changeOrigin: true,
       },
     },
